@@ -147,6 +147,8 @@ install_service() {
         return
     fi
 
+    chown -R nobody "${INSTALL_DIR}" 2>/dev/null || true
+
     cat > "${SERVICE_FILE}" <<EOF
 [Unit]
 Description=GitHub Tunnel Server
