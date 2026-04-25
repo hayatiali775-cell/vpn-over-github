@@ -133,7 +133,7 @@ configure() {
     FETCH_MS="${FETCH_MS:-200}"
 
     # shellcheck disable=SC2059
-    printf "github:\n  tokens:\n    - token: \"%s\"\n      transport: \"%s\"%s\n  upstream_connections: 2\n  batch_interval: 100ms\n  fetch_interval: %sms\n  api_timeout: 10s\n\ncleanup:\n  enabled: true\n  interval: 10m\n  dead_connection_ttl: 15m\n\nproxy:\n  target_timeout: 30s\n  buffer_size: 65536\n\nencryption:\n  algorithm: %s\n\nlogging:\n  level: info\n  format: text\n" \
+    printf "github:\n  tokens:\n    - token: \"%s\"\n      transport: \"%s\"%b\n  upstream_connections: 2\n  batch_interval: 100ms\n  fetch_interval: %sms\n  api_timeout: 10s\n\ncleanup:\n  enabled: true\n  interval: 10m\n  dead_connection_ttl: 15m\n\nproxy:\n  target_timeout: 30s\n  buffer_size: 65536\n\nencryption:\n  algorithm: %s\n\nlogging:\n  level: info\n  format: text\n" \
         "${TOKEN}" "${TRANSPORT}" "${REPO_LINE}" "${FETCH_MS}" "${ALGO}" > "${CONFIG_FILE}"
     chmod 600 "${CONFIG_FILE}"
     log "Config written to ${CONFIG_FILE} (permissions: 600)"
