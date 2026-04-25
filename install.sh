@@ -114,8 +114,8 @@ configure() {
         err "Token is required."
     fi
 
-    read -r -p "Transport [gist/git] (default: gist): " TRANSPORT
-    TRANSPORT="${TRANSPORT:-gist}"
+    read -r -p "Transport [gist/git] (default: git): " TRANSPORT
+    TRANSPORT="${TRANSPORT:-git}"
 
     REPO_LINE=""
     if [ "${TRANSPORT}" = "git" ]; then
